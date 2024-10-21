@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { useState } from "react"
 import Link from "next/link"
@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Sidebar } from "./sidebar"
+// import Sidebar from "@/components/sidebar"
 import SettingsPanel from "./settings"
 
 interface HeaderProps {
   toggleSidebar: () => void
 }
 
-export function Header({ toggleSidebar }: HeaderProps) {
+export default function Navbar({ toggleSidebar }: HeaderProps) {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
 
   return (
