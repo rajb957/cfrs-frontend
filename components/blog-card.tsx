@@ -36,10 +36,13 @@ export function BlogCard({ id, title, author, authorId,   category, readTime }: 
         <CardHeader>
           <CardTitle>{title || 'Untitled Article'}</CardTitle>
         </CardHeader>
-        <CardContent>
+      </Link>
+      <CardContent>
+        <Link href={`/blog/${id}`}>
           <p className="text-muted-foreground mb-4">
             {category || 'Uncategorized'} • {readTime || 'Unknown'} read
           </p>
+        </Link>
           <Link href={`/author/${authorId}`} onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center">
               <Avatar className="h-8 w-8 mr-2">
@@ -49,8 +52,7 @@ export function BlogCard({ id, title, author, authorId,   category, readTime }: 
               <span className="text-sm font-medium hover:underline">{author || 'Unknown Author'}</span>
             </div>
           </Link>
-        </CardContent>
-      </Link>
+      </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline" asChild>
           <Link href={`/blog/${id}`}>Read More</Link>

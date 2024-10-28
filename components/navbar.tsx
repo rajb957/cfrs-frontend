@@ -1,22 +1,17 @@
-// 'use client'
-
-import { useState } from "react"
 import Link from "next/link"
-import { Menu, Search, Settings, User } from "lucide-react"
+import { Menu, Search, Settings } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-// import Sidebar from "@/components/sidebar"
 import SettingsPanel from "./settings"
 
 interface HeaderProps {
+  searchPlaceholder: string
   toggleSidebar: () => void
 }
 
-export default function Navbar({ toggleSidebar }: HeaderProps) {
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false)
-
+export function Navbar({ searchPlaceholder,toggleSidebar }: HeaderProps) {
   return (
     <header className="sticky top-0 z-20 bg-background border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -30,13 +25,15 @@ export default function Navbar({ toggleSidebar }: HeaderProps) {
           </Link>
         </div>
         <div className="flex-1 max-w-sm mx-4">
+          {searchPlaceholder==="None" ? null : 
           <div className="relative">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input placeholder="Search blogs..." className="pl-8" />
+            <Input placeholder={searchPlaceholder} className="pl-8" />
           </div>
+          }
         </div>
         <div className="flex items-center space-x-2">
-          <Sheet open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
+          <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Settings className="h-6 w-6" />

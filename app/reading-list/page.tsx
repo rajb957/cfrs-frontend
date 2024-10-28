@@ -1,6 +1,6 @@
-import { ReadingListPageComponent } from "@/components/reading-list-page"
+import ReadingListPage from "@/components/reading-list-page"
 
-export default function ReadingListPage() 
+export default function Page() 
 {
-    return <ReadingListPageComponent />
+    return <ReadingListPage />
 }
