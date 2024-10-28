@@ -46,7 +46,7 @@ export default function BlogPostPage({ params } : { params: { id: string } }) {
     const { id } = params   
     // In a real application, you would fetch the blog post data based on the ID
     console.log("ID",id)
-    const blogPost = blogPosts[id as keyof typeof blogPosts]
+    const blogPost = blogPosts[id as unknown as keyof typeof blogPosts]
     if (!blogPost) {
         return <div>Blog post not found</div>
     }
