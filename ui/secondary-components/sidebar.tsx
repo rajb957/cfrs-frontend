@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Home, BookOpen, User } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/ui/components/button"
 
 export function Sidebar() {
   return (

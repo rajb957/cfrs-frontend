@@ -1,4 +1,4 @@
-import ReadingListPage from "@/components/reading-list-page"
+import ReadingListPage from "@/ui/pages/reading-list-page"
 
 export default function Page() 
 {

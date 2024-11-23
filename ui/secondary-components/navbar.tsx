@@ -1,9 +1,9 @@
 import Link from "next/link"
 import { Menu, Search, Settings } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/ui/components/button"
+import { Input } from "@/ui/components/input"
+import { Sheet, SheetContent, SheetTrigger } from "@/ui/components/sheet"
+import { Avatar, AvatarFallback, AvatarImage } from "@/ui/components/avatar"
 import SettingsPanel from "./settings"
 
 interface HeaderProps {

@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Switch } from "@/components/ui/switch"
-import { Label } from "@/components/ui/label"
-import { Slider } from "@/components/ui/slider"
+import { Button } from "@/ui/components/button"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/ui/components/select"
+import { Switch } from "@/ui/components/switch"
+import { Label } from "@/ui/components/label"
+import { Slider } from "@/ui/components/slider"
 
 export default function SettingsPanel() {
   const [recommendationType, setRecommendationType] = useState("content-based")

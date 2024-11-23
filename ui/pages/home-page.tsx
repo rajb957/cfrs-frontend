@@ -1,7 +1,7 @@
 'use client'
 
-import { Layout } from "@/components/layout"
-import { BlogCard } from "@/components/blog-card"
+import { Layout } from "@/ui/layout/layout"
+import { BlogCard } from "@/ui/secondary-components/blog-card"
 
 export default function HomePage() {
   const recommendedBlogs = [

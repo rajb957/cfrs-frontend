@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { Navbar } from "@/components/navbar"
-import { Sidebar } from "@/components/sidebar"
+import { Navbar } from "@/ui/secondary-components/navbar"
+import { Sidebar } from "@/ui/secondary-components/sidebar"
 
 interface LayoutProps {
     searchPlaceholder: string

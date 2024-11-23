@@ -1,12 +1,12 @@
 'use client'
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Layout } from "@/components/layout"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/ui/components/button"
+import { Input } from "@/ui/components/input"
+import { Label } from "@/ui/components/label"
+import { Layout } from "@/ui/layout/layout"
+import { Avatar, AvatarFallback, AvatarImage } from "@/ui/components/avatar"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/ui/components/card"
 
 export function Profile() {
   const [name, setName] = useState("John Doe")

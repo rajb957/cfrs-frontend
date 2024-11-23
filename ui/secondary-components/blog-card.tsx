@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { Bookmark } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/ui/components/button"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/ui/components/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/ui/components/avatar"
 import { useToast } from "@/hooks/use-toast"
 import Link from "next/link"
 
