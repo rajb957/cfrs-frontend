@@ -1,3 +1,4 @@
+import AuthGuard from '@/context/auth-guard';
 import BlogPage from '@/ui/pages/blog-page';
 
 async function getBlogPostById(id: string) {
@@ -32,7 +33,11 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
     const blogPost = await getBlogPostById(id);
     const url = `${process.env.BACKEND_URL}/proxy?url=${encodeURIComponent(blogPost.blog_link)}`;
 
-    return <BlogPage {...blogPost} blog_link={url} />;
+    return (
+      <AuthGuard>
+        <BlogPage {...blogPost} blog_link={url} />
+      </AuthGuard>
+    );
   } catch (error) {
     console.error("Error fetching blog post:", error);
     return <div>Failed to load blog post. Please try again later.</div>;
