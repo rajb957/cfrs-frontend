@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/ui/components/button"
 import { Input } from "@/ui/components/input"
@@ -10,24 +10,26 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const { isAuthenticated, handleLogin } = useAuth();
+  const { isAuthenticated, token } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    await handleLogin(email, password);
-    if(isAuthenticated)
-    {
-        console.log("Login successful");
-        window.location.href = "/";
-    }
-    else
-    {
-        console.log("Login failed");
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ "username":email,"password": password }),
+    });
+
+    if (res.ok) {
+      const { access_token, refresh_token } = await res.json();
+      console.log("Access token:", access_token);
+      window.location.href = "/";
+    } else {
+      alert("Login failed");
     }
     console.log("Login attempt with:", { email, password })
   }
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <Card className="w-full max-w-md">

@@ -1,31 +1,20 @@
 "use client"; 
 
 import { createContext, useState, useContext, ReactNode } from "react";
-import { login } from "../lib/auth";
 
 interface AuthContextType {
   isAuthenticated: boolean;
-  handleLogin: (username: string, password: string) => Promise<void>;
+  token: string | null;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const handleLogin = async (username: string, password: string) => {
-    try {
-      var response = await login(username, password);
-      console.log("Login successful",response);
-      setIsAuthenticated(true);
-    } catch (error) {
-      console.error("Login failed", error);
-      setIsAuthenticated(false);
-    }
-  };
+  const [token, setToken] = useState<string | null>(null);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, handleLogin }}>
+    <AuthContext.Provider value={{ isAuthenticated, token }}>
       {children}
     </AuthContext.Provider>
   );

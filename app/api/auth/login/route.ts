@@ -1,6 +1,4 @@
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
-const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   const { username, password } = await req.json();
@@ -11,16 +9,22 @@ export async function POST(req: Request) {
   });
 
   if (response.ok) {
-    const data = await response.json();
-    console.log("Login successful",data);
-    console.log();
-    // cookies().set("access_token", data.access_token, {
-    //   httpOnly: true,
-    //   secure: true,
-    //   sameSite: "strict",
-    //   path: "/",
-    // });
-    return NextResponse.json({ message: "Login successful" });
+    const {access_token,refresh_token} = await response.json();
+    const nextResponse = NextResponse.json({ message: "Login successful",access_token: access_token }, { status: 200 });
+    nextResponse.cookies.set("access_token", access_token, {
+      // httpOnly: true,
+      // secure: true,
+      sameSite: "strict",
+      path: "/",
+    }); 
+    nextResponse.cookies.set("refresh_token", refresh_token, {
+      // httpOnly: true,
+      // secure: true,
+      // sameSite: "strict",
+      path: "/",
+    });
+    console.log("Cookies:", nextResponse.cookies.getAll());
+    return nextResponse;
   } else {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
