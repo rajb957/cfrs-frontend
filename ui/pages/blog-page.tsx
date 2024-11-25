@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Layout } from "@/ui/layout/layout";
+import { Layout } from "@/ui/layout/NormalLayout";
 import { ArrowLeft, Star, BookmarkPlus } from "lucide-react";
 import { Button } from "@/ui/components/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/ui/components/avatar";

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import { Layout } from "@/ui/layout/layout"
+import { Layout } from "@/ui/layout/NormalLayout"
 import { Button } from "@/ui/components/button"
 import { Trash2 } from "lucide-react"
 

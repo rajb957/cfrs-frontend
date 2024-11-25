@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from "react"
-import { Layout } from "@/ui/layout/layout"
+import { Layout } from "@/ui/layout/NormalLayout"
 import { BlogCard } from "@/ui/secondary-components/blog-card"
 import AuthGuard from "@/context/auth-guard"
 

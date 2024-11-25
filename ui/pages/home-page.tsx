@@ -1,6 +1,6 @@
 'use client'
 
-import { Layout } from "@/ui/layout/layout"
+import { Layout } from "@/ui/layout/NormalLayout"
 import { BlogCard } from "@/ui/secondary-components/blog-card"
 
 export default function HomePage() {

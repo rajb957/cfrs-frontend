@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/ui/components/button"
 import { Input } from "@/ui/components/input"
 import { Label } from "@/ui/components/label"
-import { Layout } from "@/ui/layout/layout"
+import { Layout } from "@/ui/layout/NormalLayout"
 import { Avatar, AvatarFallback, AvatarImage } from "@/ui/components/avatar"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/ui/components/card"
 
