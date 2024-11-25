@@ -9,13 +9,14 @@ import Link from "next/link"
 interface BlogCardProps {
   id: number
   title?: string
+  content?: string
   author?: string
   authorId?: string
   category?: string
-  readTime?: string
+  blog_link?: string
 }
 
-export function BlogCard({ id, title, author, authorId,   category, readTime }: BlogCardProps) {
+export function BlogCard({ id, title, author, authorId,   category }: BlogCardProps) {
   const [isSaved, setIsSaved] = useState(false)
   const { toast } = useToast()
 
@@ -40,7 +41,7 @@ export function BlogCard({ id, title, author, authorId,   category, readTime }: 
       <CardContent>
         <Link href={`/blog/${id}`}>
           <p className="text-muted-foreground mb-4">
-            {category || 'Uncategorized'} • {readTime || 'Unknown'} read
+            {category || 'Uncategorized'} • {'Unknown'} read
           </p>
         </Link>
           <Link href={`/author/${authorId}`} onClick={(e) => e.stopPropagation()}>

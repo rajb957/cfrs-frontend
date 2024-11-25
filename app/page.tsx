@@ -3,9 +3,18 @@ import { useState, useEffect } from "react"
 import { Layout } from "@/ui/layout/NormalLayout"
 import { BlogCard } from "@/ui/secondary-components/blog-card"
 import AuthGuard from "@/context/auth-guard"
+interface Blog {
+  id: number
+  title?: string
+  content?: string
+  author?: string
+  authorId?: string
+  category?: string
+  blog_link?: string
+}
 
 export default function Page() {
-  const [recommendedBlogs, setBlogs] = useState([]);
+  const [recommendedBlogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
     // Fetch data from the API route at /blogs
