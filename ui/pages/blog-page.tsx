@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 import { Layout } from "@/ui/layout/NormalLayout";
 import { ArrowLeft, Star, BookmarkPlus } from "lucide-react";
 import { Button } from "@/ui/components/button";
@@ -30,6 +31,27 @@ export default function BlogPage({
         // Here you would typically send this rating to your backend
         console.log(`Rated ${value} stars`);
     };
+    const [isSaved, setIsSaved] = useState(false)
+    const { toast } = useToast()
+    const handleSave = (e: React.MouseEvent) => {
+        e.preventDefault() // Prevent navigation when clicking the save button
+        setIsSaved(!isSaved)
+        toast({
+          title: isSaved ? "Removed from reading list" : "Saved to reading list",
+          description: isSaved 
+            ? "The article has been removed from your reading list." 
+            : "The article has been added to your reading list.",
+        })
+        // fetch(`/api/bookmark`, {
+        //     method: "POST",
+        //     // Include the user's token in the request
+        //     headers: {
+        //         Authorization: `${localStorage.getItem("access_token")}`,
+        //     },
+        //     body: JSON.stringify({ id }),
+        // });
+        console.log("Bookmarked");
+      }
 
     return (
         <Layout searchPlaceholder="None">
@@ -62,10 +84,17 @@ export default function BlogPage({
                     </p>
                 </div>
                 </div>
-                <Button variant="outline" size="sm">
-                <BookmarkPlus className="h-4 w-4 mr-2" />
-                Save for later
+                {isSaved ? (
+                <Button onClick={handleSave} variant="outline" size="sm">
+                    <BookmarkPlus className="h-4 w-4 mr-2" />
+                    Save for later
                 </Button>
+                ):
+                (<Button onClick={handleSave} variant="outline" size="sm">
+                    <BookmarkPlus className="h-4 w-4 mr-2" />
+                    Remove from reading list
+                </Button>)
+                }   
             </div>
             </header>
 

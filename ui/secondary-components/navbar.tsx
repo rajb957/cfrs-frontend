@@ -44,12 +44,17 @@ export function Navbar({ searchPlaceholder,toggleSidebar }: HeaderProps) {
               <SettingsPanel />
             </SheetContent>
           </Sheet>
-          <Link href="/profile" passHref>
+          {/* <Link href="/profile" passHref>
             <Button variant="ghost" size="icon">
               <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
+            </Button>
+          </Link> */}
+          <Link href = "/logout" passHref>
+            <Button>
+              Logout
             </Button>
           </Link>
         </div>

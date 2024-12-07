@@ -18,11 +18,11 @@ export function Layout({ searchPlaceholder,children }: LayoutProps) {
       <Navbar toggleSidebar={toggleSidebar} searchPlaceholder={searchPlaceholder} />
       <div className="flex flex-1">
         {/* Sidebar for larger screens */}
-        <aside className="bg-muted w-64 hidden md:block">
+        {/* <aside className="bg-muted w-64 hidden md:block">
           <Sidebar />
         </aside>
 
-        {/* Sidebar for smaller screens */}
+        // { Sidebar for smaller screens }
         {isSidebarOpen && (
           <div className="fixed inset-0 z-30 md:hidden">
             <div className="absolute inset-0 bg-black/50" onClick={toggleSidebar} />
@@ -30,7 +30,7 @@ export function Layout({ searchPlaceholder,children }: LayoutProps) {
               <Sidebar />
             </aside>
           </div>
-        )}
+        )} */}
 
         {/* Main content */}
         <main className="flex-1 overflow-y-auto">

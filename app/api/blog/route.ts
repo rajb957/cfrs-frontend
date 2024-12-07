@@ -1,8 +1,10 @@
 // app/blogs/route.ts
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 // Handle GET requests to fetch blogs
-export async function GET() {
-  const blogs = await fetchBlogsFromDatabase(); // Replace with your data fetching logic
+export async function GET(request:NextRequest) {
+  const page = request.nextUrl.searchParams.get('page');
+  const pageNumber = page ? parseInt(page, 10) : 1;
+  const blogs = await fetchBlogsFromDatabase(pageNumber); // Replace with your data fetching logic
   return NextResponse.json(blogs);
 }
 
@@ -14,8 +16,8 @@ export async function POST(request: Request) {
 }
 
 // Mock functions to demonstrate functionality
-  async function fetchBlogsFromDatabase() {
-  const data = await fetch(process.env.BACKEND_URL + '/')
+  async function fetchBlogsFromDatabase(page: number) {
+  const data = await fetch(process.env.BACKEND_URL + '/?page=' + page)
   const blogs = await data.json()
   return blogs
 }
