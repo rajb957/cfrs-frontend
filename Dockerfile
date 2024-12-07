@@ -1,5 +1,5 @@
 # Use an official Node.js image as the base for building
-FROM node:16 AS builder
+FROM node:latest AS builder
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use a smaller Node.js runtime for the production environment
-FROM node:16-alpine AS runner
+FROM node:latest AS runner
 
 # Set the working directory inside the container
 WORKDIR /app
