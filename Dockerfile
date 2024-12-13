@@ -29,9 +29,7 @@ FROM node:latest AS runner
 WORKDIR /app
 
 # Copy the built application and node_modules from the builder stage
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+COPY . .
 
 # Expose the port that the Next.js app runs on
 EXPOSE 3000
