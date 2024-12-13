@@ -17,7 +17,7 @@ COPY . .
 ARG BACKEND_URL
 
 # Pass the backend URL to the build process
-ENV NEXT_PUBLIC_BACKEND_URL=${BACKEND_URL}
+ENV BACKEND_URL=${BACKEND_URL}
 
 # Build the application for production
 RUN npm run build
