@@ -20,7 +20,7 @@ ARG BACKEND_URL
 ENV BACKEND_URL=${BACKEND_URL}
 
 # Build the application for production
-RUN npm run build
+# RUN npm run build
 
 # Use a smaller Node.js runtime for the production environment
 FROM node:latest AS runner
@@ -35,4 +35,5 @@ COPY --from=builder  . .
 EXPOSE 3000
 
 # Start the Next.js application
-CMD ["npm", "run", "start -- -p 3000"]
+# CMD ["npm", "run", "start -- -p 3000"]
+CMD ["npm", "run", "dev"]
